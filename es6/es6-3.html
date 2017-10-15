@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [1,2,3];
+		var arr2 = arr;
+		var arr3 = [];
+		arr.pop();
+		console.log(arr,arr2);
+		//这样其实是指向的一个数组 复制数组(1)->
+		for (let i = 0;i < arr.length; i++) {
+			arr3[i] = arr[i];
+		}
+		arr3.push(3);
+		console.log(arr,arr3);
+		//复制数组(2)->
+		var arr4 = Array.from(arr);
+		console.log(arr,arr4);
+		//复制数组(3)->
+		var arr5 = [...arr];
+		console.log(arr,arr5);
+//第二集   4:00
+	</script>
+</body>
+</html>
