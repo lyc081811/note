@@ -6,7 +6,7 @@
 </head>
 <body>
 	<script>
-		var arr = [1,2,3];
+	/*	var arr = [1,2,3];
 		var arr2 = arr;
 		var arr3 = [];
 		arr.pop();
@@ -23,7 +23,21 @@
 		//复制数组(3)->
 		var arr5 = [...arr];
 		console.log(arr,arr5);
-//第二集   4:00
+	*/
+
+		// function show() {
+		// 	console.log(arguments);
+		// 	arguments.push(5); //这样会报错的^_^
+		// 	console.log(arguments);
+
+		// }
+		function show(...args) {
+			console.log(args);
+			args.push(5); //这样的args就是一个数组^_^
+			console.log(args);
+
+		}
+		show(1,2,3,4);
 	</script>
 </body>
 </html>

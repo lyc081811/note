@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 箭头函数 => 里面不可以用arguments
+		window.onload = () => {};
+
+		// 对象语法简洁化
+			//单体模式->
+				/*var person = {
+					name: 'abc',
+					age: 16,
+					showName: function(){
+						alert(this.name);
+					}
+				}*/
+			var name = 'abc';
+			var age = 16;
+			var person = {
+				name,
+				age,
+				showName(){
+					alert(this.name);
+				}
+			};
+			//person.showName();
+
+
+		//面向对象  类
+			// function Person(name) {
+				// 	this.name = name;
+				// 	this.age = 16;
+				// }
+				// Person.prototype.showName = function(){
+				// 	return this.name;
+				// }
+				// var p1 = new Person('abc');
+			// alert(p1.showName());
+
+		class Person{
+  
+		}
+
+	</script>
+</body>
+</html>
