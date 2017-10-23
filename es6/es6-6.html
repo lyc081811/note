@@ -41,9 +41,32 @@
 				// var p1 = new Person('abc');
 			// alert(p1.showName());
 
-		class Person{
-  
+		class Person{ //这就是一个类
+			constructor(name='default', age=1) {
+				this.name = name;
+				this.age = age;
+			}
+			showName() {
+				return this.name;
+			}
 		}
+		class worker extends Person {  //面向对象-继承
+			constructor(name,age,job="程序员") {
+				super(name,age);
+				this.job = job;
+			}
+			showJob() {
+				return this.job;
+			}
+		}
+		var p1 = new Person('aaa', 13);
+		var w1 = new worker('mmm', 56);
+		var p2 = new Person('bbb', 113);
+		var p3 = new Person();
+		// alert(p1.showName());
+		// alert(p2.showName());
+		// alert(p3.showName());
+		alert(w1.showJob('111', 45, '公认'))
 
 	</script>
 </body>

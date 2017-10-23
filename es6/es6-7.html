@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.on {
+			background: #f60;
+			color:#fff;
+		}
+		#box div, #box2 div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #ccc;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<input type="button" name="" value="aaa" class="on">
+		<input type="button" name="" value="bbb">
+		<input type="button" name="" value="ccc">
+		<div style="display: block;">111</div>
+		<div>222</div>
+		<div>333</div>
+	</div>
+	<div id="box2">
+		<input type="button" name="" value="aaa" class="on">
+		<input type="button" name="" value="bbb">
+		<input type="button" name="" value="ccc">
+		<div style="display: block;">111</div>
+		<div>222</div>
+		<div>333</div>
+	</div>
+	<script type="text/javascript">
+		class Tab {
+			constructor(id) {
+				this.oBox = document.getElementById(id);
+				this.aBtn = this.oBox.getElementsByTagName('input');
+				this.aDiv = this.oBox.getElementsByTagName('div');
+				this.iNow = 0;
+				this.init();
+			}
+			init() {
+				for(let i = 0; i< this.aBtn.length; i++) {
+					this.aBtn[i].onclick = function(){
+						this.hide();
+						this.show(i);
+					}.bind(this); // bind()可以矫正this的指向
+				}
+			}
+			hide() {
+				for(let i = 0; i< this.aBtn.length; i++) {
+					this.aBtn[i].className = '';
+					this.aDiv[i].style.display = 'none';
+				}
+			}
+			show(index) {
+				this.aBtn[index].className = 'on';
+				this.aDiv[index].style.display = 'block';
+			}
+		}
+		class AutoTab extends Tab {
+			next(){}
+		}
+		window.onload = function() {
+			new Tab('box');
+			new Tab('box2');
+		};
+	</script>
+</body>
+</html>
