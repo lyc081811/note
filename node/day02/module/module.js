@@ -22,8 +22,6 @@ function divide(a, b) {
   return convert(a) / convert(b);
 }
   
-// exports.add= add;
-  
 // ES6的语法“自动属性”
 module.exports = { add, subtract, mutiply, divide };
   // module.exports = {

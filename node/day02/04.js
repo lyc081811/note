@@ -13,7 +13,7 @@ let op = args[1];
 let p1= args[2];
 
 // let result = eval(`${p0} ${op} ${p1}`);
-const calc = require('./model.js');
+const calc = require('./module/module.js');
 let result;
 switch (op) {
   case '+':
@@ -21,6 +21,9 @@ switch (op) {
     break;
   case '-':
     result = calc.subtract(parseFloat(p0), parseFloat(p1));
+    break;
+  case '*':
+    result = calc.mutiply(parseFloat(p0), parseFloat(p1));
     break;
   default:
     throw new Error('不被支持的操作符' + op);
