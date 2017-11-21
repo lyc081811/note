@@ -1,0 +1,5 @@
+http://10.254.23.87:8181/fsadmin/fscms/index.do  admin  123456   测试后台
+测试(87) partyDeploy  partyDeploy85123! 
+   资源的  /mnt/cms_deploy/cms_release_deploy/r/cms
+   模板的 /home/partyDeploy/cms_deploy/cms_release_deploy/cms-dt-tomcat/webapps/ROOT/WEB-INF/t/cms/dtdjzx/default
+发版: http://10.254.23.58:8080/   zhangll   123456
