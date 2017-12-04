@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "marked": "^0.3.7"
+  }
+}
