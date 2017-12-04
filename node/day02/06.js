@@ -9,5 +9,5 @@ console.log(module);
 
 /*  require()模块
 	只加载一次,是有缓存的;
-	require.cache() 加载时可以清清除 所有的缓存
+	require.cache() ->显示所有加载的模块 //加载时可以清清除 所有的缓存
 */
