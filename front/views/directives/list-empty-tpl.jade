@@ -1,0 +1,10 @@
+script(type='text/ng-template', id='data-empty.html')
+  div(ng-if='isLoading !== true && (list == null || list.length === 0)')
+    .text-center(style='margin: 90px;', ng-if="size === 'normal'")
+      img(src='/img/blank-gif.gif', alt='暂无数据', style='max-width: 220px;max-height: 80px;')
+      h4 {{title}}
+      p {{subtitle}}
+    .text-center(style='margin: 30px 90px;', ng-if="size === 'sm'")
+      img(src='/img/blank-gif.gif', alt='暂无数据', style='max-width: 220px;max-height: 80px;')
+      h4 {{title}}
+      p {{subtitle}}

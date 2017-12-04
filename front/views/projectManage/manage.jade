@@ -1,0 +1,87 @@
+extends ../project-layout
+
+block append vars
+  -
+    title = '项目管理';
+    appendProjectName = '';
+    bodyAttrs = {
+      'ng-app': 'fe',
+      'ng-controller': 'ProjectListController'
+    }
+block append box-content
+  .normalheader.transition.animated.fadeIn.small-header
+    .top-gonggao
+      .hpanel
+        .panel-body
+          p
+            strong 公告：
+            span.m-r [10.27]你的套餐所剩只有7天，请续费
+            span.m-l [10.26]10月26日，系统凌晨3点升级公告
+            a(href='#')
+              span.m-l 更多>>
+  .content.clearfix
+    .row
+      .col-lg-offset-1.col-lg-10.col-md-12.col-sm-12
+        // 项目管理
+        .hpanel.hblue
+          .panel-heading.hbuilt
+            | 项目管理
+            .pull-right
+              small(style='font-weight: 100;vertical-align: middle;') 还可添加1/5个项目
+              a.btn.btn-success.btn-xs(href='javascript:void(0)', data-toggle='modal', data-target='#myModal13')
+                i.fa.fa-plus.m-r-xs
+                | 添加项目
+          .panel-body
+            // 活跃项目
+
+
+            // 存档项目
+            .row.m-t
+              .col-sm-4
+                select.form-control.m-b-sm(name='account', ng-model='params.activeFlag', ng-change='beforeQuery()')
+                  option(value='0') 活跃项目
+                  option(value='1') 存档项目
+            .table-responsive
+              table.table.table-bordered.table-striped.footable.m-0.text-center(cellpadding='1', cellspacing='1')
+                thead
+                  tr
+                    th.text-center
+                    th.text-center 项目名称
+                    th.text-center 项目网址
+                    th.text-center 爬取问题数量
+                    th.text-center 关键词总数
+                    th.text-center 竞争对手总数
+                    th.text-center 创建日期
+                    th.text-center 存档日期
+                    th.text-center
+                tbody
+                  tr(ng-if='isLoading')
+                    td(colspan='9') 正在加载中
+                  tr(ng-if='!isLoading && !projectList.length', ng-cloak)
+                    td(colspan='9') 暂无数据
+                  tr(ng-if='!isLoading && projectList.length > 0', ng-repeat='project in projectList track by project.id', ng-cloak)
+                    td(ng-bind='$index + 1')
+                    td
+                      a(href='#', ng-bind='project.projectName')
+                    td
+                      a(href='#')
+                        p.table-ellipsis(title='{{project.projectUrl}}', ng-bind='project.projectUrl')
+                    td(ng-bind='project.crawlIssues')
+                    td {{project.keywordNum}}/300
+                    td {{project.competitorNum}}/3
+                    td(ng-bind='project.createdAt')
+                    td &nbsp;
+                    td
+                      .btn-group
+                        i.dropdown-toggle.fa.fa-gear(data-toggle='dropdown', aria-expanded='true')
+                        ul.dropdown-menu
+                          li
+                            a(href='javascript:void(0)', data-toggle='modal', data-target='#myModal15') 激活
+                          li
+                            a(href='javascript:void(0)', data-toggle='modal', data-target='#myModal14') 删除
+              ido85-pager(ng-if='params.activeFlag !== "0"', ng-model='params.pageNo', page-size='params.pageSize', total-items='totalItems',
+                page-no-change='query()', page-size-change='query()')
+
+block append scripts
+  script(src='/js/services/manageService.js')
+  script(src='/js/manage/manage.js')

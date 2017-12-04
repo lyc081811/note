@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF8">
+    <title></title>
+    <style type="text/css">
+        #container {
+            margin: 8px;
+        }
+
+        .param-table {
+            background: #E6E6E6;
+            border: 1px solid #FFF;
+            margin: 12px 0;
+            border-collapse: collapse;
+        }
+
+        .param-table th {
+            background: gray;
+            color: #FFF;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #FFF;
+        }
+
+        .param-table td {
+            border-collapse: collapse;
+            border: 1px solid #FFF;
+            font-size: 12px;
+        }
+
+        .param-table .th-name {
+            width: 140px;
+        }
+
+        .param-table .th-identifier {
+            width: 140px;
+        }
+
+        .param-table .th-type {
+            width: 100px;
+        }
+
+        .param-table .th-remark {
+            width: 200px;
+        }
+
+        .param-table .td-name {
+        }
+
+        .param-table .td-identifier {
+        }
+
+        .param-table .td-type {
+            color: #990000;
+        }
+
+        .param-table .td-remark {
+            color: #666;
+        }
+
+        .param-table .tr-level-1 {
+            background: #E6E6E6;
+        }
+
+        .param-table .tr-level-2 {
+            background: silver;
+        }
+
+        .param-table .tr-level-3 {
+            background: gray;
+        }
+
+        .param-table .tr-level-4 {
+            background: silver;
+        }
+
+        .param-table .tr-level-5 {
+            background: gray;
+        }
+
+        .param-table .tr-level-6 {
+            background: silver;
+        }
+
+        .param-table .tr-level-7 {
+            background: gray;
+        }
+
+        .param-table .tr-level-8 {
+            background: silver;
+        }
+
+        .param-table .tr-level-9 {
+            background: gray;
+        }
+
+        .param-table .tr-level-10 {
+            background: silver;
+        }
+
+        .param-table .tr-level-11 {
+            background: gray;
+        }
+
+        .param-table .tr-level-12 {
+            background: silver;
+        }
+
+        .param-table .tr-level-13 {
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+            <div class="module">
+            <h1>1&nbsp;项目管理</h1>
+                            <div class="page">
+                    <h2>1.1&nbsp;添加项目</h2>
+                                            <div class="action">
+                            <h3>1.1.1&nbsp;根据项目名称检查项目是否存在</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/projects/exists</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">要检查的项目名称</td><td class="td-identifier">projectName</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---项目存在标识</td><td class="td-identifier">exists</td><td class="td-type">boolean</td><td class="td-remark">true-项目已存在, false-项目不存在</td></tr><tr class="tr-level-2"><td class="td-name">---项目信息</td><td class="td-identifier">project</td><td class="td-type">object</td><td class="td-remark">仅 exists=true 时有效</td></tr><tr class="tr-level-3"><td class="td-name">------项目名称</td><td class="td-identifier">projectName</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------项目Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.2&nbsp;添加项目</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/projects/add</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">关键词</td><td class="td-identifier">keywords</td><td class="td-type">array&lt;string&gt;</td><td class="td-remark">@mock=$order(&#39;京东&#39;,&#39;京东商城&#39;,&#39;京东超市&#39;,&#39;360buy&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">项目Url</td><td class="td-identifier">projectUrl</td><td class="td-type">string</td><td class="td-remark">@mock=https://jd.com</td></tr><tr class="tr-level-1"><td class="td-name">项目名称</td><td class="td-identifier">projectName</td><td class="td-type">string</td><td class="td-remark">@mock=京东</td></tr><tr class="tr-level-1"><td class="td-name">竞品集合</td><td class="td-identifier">competitors|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---竞品Url</td><td class="td-identifier">url</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;https://tmall.com&#39;,&#39;http://www.suning.com&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---竞品名称</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;天猫&#39;,&#39;苏宁易购&#39;)</td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark">除Id和keywords外，所有字段原样返回</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">projectUrl</td><td class="td-type">string</td><td class="td-remark">@mock=https://jd.com</td></tr><tr class="tr-level-2"><td class="td-name">---项目创建时间</td><td class="td-identifier">createdAt</td><td class="td-type">string</td><td class="td-remark">@mock=2017-09-16T18:00:12.580Z</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">keywords|4</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;217f30ba-7cf0-4610-9d70-59617b844cd7&#39;,&#39;a6495853-316f-4afe-ae3e-13b952b92bb8&#39;,&#39;7cb35a6c-bb97-4b1b-9c4f-5d71bc0dfb62&#39;,&#39;d3e21ead-3e7b-4615-97a3-aded05e48c22&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">keywordName</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;京东&#39;,&#39;京东商城&#39;,&#39;京东超市&#39;,&#39;360buy&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">projectName</td><td class="td-type">string</td><td class="td-remark">@mock=京东</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">competitors|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">competitorName</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;天猫&#39;,&#39;苏宁易购&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">competitorUrl</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;https://tmall.com&#39;,&#39;http://www.suning.com&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;b3cb2ef3-da04-49ff-8a5b-e0d7b175e114&#39;,&#39;c1ca77b6-ebcf-4375-86c4-43acff2f6524&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---项目Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=5ca8832c-f68e-4e7c-b364-61b68d5d8de5</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.2&nbsp;项目管理</h2>
+                                            <div class="action">
+                            <h3>1.2.1&nbsp;项目列表查询</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/projects/</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">活跃项目标识</td><td class="td-identifier">activeFlag</td><td class="td-type">string</td><td class="td-remark">不传-全部，&quot;0&quot;-活跃项目，&quot;1&quot;-存档项目</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">pageNo</td><td class="td-type">number</td><td class="td-remark">仅 activeFlag=&quot;1&quot; 时有效</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">pageSize</td><td class="td-type">number</td><td class="td-remark">仅 activeFlag=&quot;1&quot; 时有效</td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-1"><td class="td-name">响应数据</td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---项目列表</td><td class="td-identifier">projectInfos</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------爬取问题数</td><td class="td-identifier">crawlIssues</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------归档时间</td><td class="td-identifier">archiveAt</td><td class="td-type">string</td><td class="td-remark">ISO8601 String,仅 status=&quot;ARCHIVED&quot; 时有效</td></tr><tr class="tr-level-3"><td class="td-name">------项目Url</td><td class="td-identifier">projectUrl</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------创建时间</td><td class="td-identifier">createdAt</td><td class="td-type">string</td><td class="td-remark">ISO8601 String</td></tr><tr class="tr-level-3"><td class="td-name">------项目名称</td><td class="td-identifier">projectName</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------项目状态</td><td class="td-identifier">status</td><td class="td-type">string</td><td class="td-remark">&quot;ACTIVE&quot;-活跃，&quot;ARCHIVED&quot;-存档，&quot;DELETED&quot;-删除</td></tr><tr class="tr-level-3"><td class="td-name">------项目Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---项目数量</td><td class="td-identifier">count</td><td class="td-type">number</td><td class="td-remark">仅 activeFlag=&quot;1&quot; 时返回</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.2&nbsp;设置项目状态为活跃、归档或删除</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/projects/setStatus</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">项目状态</td><td class="td-identifier">status</td><td class="td-type">string</td><td class="td-remark">&quot;ACTIVE&quot;-活跃,&quot;ARCHIVED&quot;-存档,&quot;DELETED&quot;-删除</td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-1"><td class="td-name">操作结果</td><td class="td-identifier">data</td><td class="td-type">boolean</td><td class="td-remark">true-成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.3&nbsp;根据Id查询项目基本信息</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/projects/{projectId}</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">createdAt</td><td class="td-type">string</td><td class="td-remark">@mock=2017-09-16T13:58:44.000Z</td></tr><tr class="tr-level-2"><td class="td-name">---项目状态</td><td class="td-identifier">status</td><td class="td-type">string</td><td class="td-remark">@mock=ACTIVE</td></tr><tr class="tr-level-2"><td class="td-name">---爬取问题数</td><td class="td-identifier">crawlIssues</td><td class="td-type">number</td><td class="td-remark">@mock=20</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">competitors|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------竞品名称</td><td class="td-identifier">competitorName</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;美赞臣&#39;,&#39;雅培&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------竞品Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;562ab4bb-4546-472c-8f27-325dfb468260&#39;,&#39;d13e34f1-e8c2-4a90-a84a-13159b43d089&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------竞品Url</td><td class="td-identifier">competitorUrl</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;https://www.meadjohnson.com.cn/&#39;,&#39;http://www.abbott.com.cn/&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---项目名称</td><td class="td-identifier">projectName</td><td class="td-type">string</td><td class="td-remark">@mock=合生元</td></tr><tr class="tr-level-2"><td class="td-name">---项目Url</td><td class="td-identifier">projectUrl</td><td class="td-type">string</td><td class="td-remark">@mock=http://www.biostime.com.cn/</td></tr><tr class="tr-level-2"><td class="td-name">---项目Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=eb24ee9b-22c2-4d4c-8899-5a098cee74c8</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">keywordGroups</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------分组名称</td><td class="td-identifier">groupName</td><td class="td-type">string</td><td class="td-remark">@mock=行业词</td></tr><tr class="tr-level-3"><td class="td-name">------分组Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=6de4228c-9bb0-11e7-b91e-00ffcdc11550</td></tr><tr class="tr-level-2"><td class="td-name">---关键词数量</td><td class="td-identifier">keywordNum</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.3&nbsp;关键词管理</h2>
+                                            <div class="action">
+                            <h3>1.3.1&nbsp;删除关键词</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/keywords/delete</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">要删除的关键词Id</td><td class="td-identifier">keywords</td><td class="td-type">array&lt;string&gt;</td><td class="td-remark"></td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-1"><td class="td-name">操作成功标识</td><td class="td-identifier">data</td><td class="td-type">boolean</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.2&nbsp;查询关键词列表</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/keywords/</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">pageSize</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">查询品牌词标识</td><td class="td-identifier">isBrand</td><td class="td-type">string</td><td class="td-remark">不传-不根据品牌词标识查询,&quot;0&quot;-非品牌词,&quot;1&quot;-品牌词</td></tr><tr class="tr-level-1"><td class="td-name">项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">关键词名称模糊查询</td><td class="td-identifier">keyword</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">查询的分组Id</td><td class="td-identifier">groups</td><td class="td-type">array&lt;string&gt;</td><td class="td-remark">不传不根据分组查询；如果数组中只有一个&quot;-1&quot;，则查询未分组的；否则在指定分组下查询</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">pageNo</td><td class="td-type">number</td><td class="td-remark"></td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---符合条件的数据数量</td><td class="td-identifier">count</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">rows</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">group</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-4"><td class="td-name">---------分组Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-4"><td class="td-name">---------分组名称</td><td class="td-identifier">groupName</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------关键词</td><td class="td-identifier">keywordName</td><td class="td-type">string</td><td class="td-remark">@mock=婴幼儿奶粉</td></tr><tr class="tr-level-3"><td class="td-name">------项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark">@mock=eb24ee9b-22c2-4d4c-8899-5a098cee74c8</td></tr><tr class="tr-level-3"><td class="td-name">------关键词Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=bcf28de5-32c1-416e-82e9-0f1288065b6f</td></tr><tr class="tr-level-3"><td class="td-name">------品牌词标识</td><td class="td-identifier">isBrand</td><td class="td-type">string</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.3&nbsp;设置或取消品牌词</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/keywords/setBrand</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">要操作的关键词Id</td><td class="td-identifier">keywords</td><td class="td-type">array&lt;string&gt;</td><td class="td-remark">@mock=$order(&#39;京东&#39;,&#39;京东商城&#39;,&#39;京东超市&#39;,&#39;360buy&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">要将关键词设置的品牌词标识</td><td class="td-identifier">isBrand</td><td class="td-type">string</td><td class="td-remark">&quot;0&quot;-将所选关键词设置为非品牌词,&quot;1&quot;-将所选关键词设为品牌词</td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-1"><td class="td-name">操作是否成功</td><td class="td-identifier">data</td><td class="td-type">boolean</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.4&nbsp;添加关键词</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/keywords/add</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">分组Id</td><td class="td-identifier">groupId</td><td class="td-type">string</td><td class="td-remark">仅isBrand=&quot;0&quot;时有效，将关键词添加到的分组Id</td></tr><tr class="tr-level-1"><td class="td-name">品牌词标识</td><td class="td-identifier">isBrand</td><td class="td-type">string</td><td class="td-remark">&quot;0&quot;-将所有关键词设置为非品牌词,&quot;1&quot;-将所有关键词设为品牌词</td></tr><tr class="tr-level-1"><td class="td-name">要添加的关键词</td><td class="td-identifier">keywords</td><td class="td-type">array&lt;string&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---关键词Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;767b6c3c-f494-4a12-be3d-a24e475116c5&#39;,&#39;f4e53412-0fcb-4390-a39c-2415d56caa6e&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">keywordName</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;京东图书满减&#39;,&#39;京东图书优惠&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;1d3094fd-5e09-4c0c-b63f-f5e79e30622a&#39;,&#39;1d3094fd-5e09-4c0c-b63f-f5e79e30622a&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">groupId</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">isBrand</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;1&#39;,&#39;1&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">isDelete</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;0&#39;,&#39;0&#39;)</td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.4&nbsp;分组管理</h2>
+                                            <div class="action">
+                            <h3>1.4.1&nbsp;删除项目关键词分组</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/keywordGroups/delete</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">分组Id</td><td class="td-identifier">groupId</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">操作成功标识</td><td class="td-identifier">data</td><td class="td-type">boolean</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.4.2&nbsp;查询项目关键词分组</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/keywordGroups/</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">pageNo</td><td class="td-type">number</td><td class="td-remark">仅当该值传递时分页查询，否则查全部</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">pageSize</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">rows</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------分组名称</td><td class="td-identifier">groupName</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------分组Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------关键词数量</td><td class="td-identifier">keywordNum</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---分组数量</td><td class="td-identifier">count</td><td class="td-type">number</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.4.3&nbsp;添加项目关键词分组</h3>
+
+                            <h3>Description</h3>
+
+                            <div></div>
+                            <h3>URL</h3>
+
+                            <div>/keywordGroups/add</div>
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">分组名称</td><td class="td-identifier">groupName</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">项目Id</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">isDelete</td><td class="td-type">string</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---分组Id</td><td class="td-identifier">id</td><td class="td-type">string</td><td class="td-remark">@mock=5ae52c5a-0070-4195-b0fd-f4ae2834c0bc</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">groupName</td><td class="td-type">string</td><td class="td-remark">@mock=超市词</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">projectId</td><td class="td-type">string</td><td class="td-remark">@mock=1d3094fd-5e09-4c0c-b63f-f5e79e30622a</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">result</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---响应码</td><td class="td-identifier">retCode</td><td class="td-type">number</td><td class="td-remark">0-成功</td></tr><tr class="tr-level-2"><td class="td-name">---响应消息</td><td class="td-identifier">retMsg</td><td class="td-type">string</td><td class="td-remark">retCode!=0时，返回错误消息</td></tr></table>
+                        </div>
+                                    </div>
+                    </div>
+    </div>
+</body>
+</html>

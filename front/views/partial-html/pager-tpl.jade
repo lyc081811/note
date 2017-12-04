@@ -1,0 +1,7 @@
+.pull-right
+  label
+    | 每页&nbsp;
+    select.form-control.input-sm(ng-model='pager.size', ng-options='size for size in [5, 10, 20, 25, 50, 100]', ng-change='pageSizeChanged()', style='vertical-align: baseline; width: 75px; display: inline-block;')
+    | 行
+uib-pagination(class='pull-right m-xxs', total-items='pager.totalItems', items-per-page='pager.size', previous-text='{{previousText}}', next-text='{{nextText}}', ng-model='pager.no', ng-change='currentPageChanged()', max-size='5', force-ellipses='true')
+.pull-right(style='padding-top: 8px;') 共有{{pager.totalItems}}条结果

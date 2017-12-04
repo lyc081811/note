@@ -1,0 +1,116 @@
+//- Jade 主布局文件，该类型文件可以有多个，主要配置页面上公共的部分
+//- @author project-generator
+extend layout
+
+block append vars
+  -
+    //- 当前页对应的菜单名称，页面上没有菜单或菜单不在布局中时可以不使用
+    var menuName = '';
+    //- 是否隐藏顶部菜单，当项目有顶部布局且有页面不使用顶部布局时，可以配置为false
+    var showTop = true;
+    //- 是否隐藏左边菜单
+    var showLeftMenu = false;
+block content
+  if showTop
+    #header
+      .logo.m-hide
+        img(src='/img/logo.png', alt='')
+      nav(role='navigation')
+        .header-link.hide-menu
+          i.fa.fa-bars
+        .header-link.active
+          | 产品
+          ul.top-nav(aria-expanded='true')
+            li.top-nav-item
+              a(href='#') SEO
+            li.top-nav-item
+              a(href='#') ORM
+        .header-link 行业词库
+        .header-link
+          | 工具大全
+          ul.top-nav(aria-expanded='true')
+            li.top-nav-item
+              a(href='工具大全_关键词排名.html') 关键词排名
+            li.top-nav-item
+              a(href='工具大全_关键词拓展.html') 关键词拓展
+            li.top-nav-item
+              a(href='工具大全_百度指数查询.html') 百度指数查询
+            li.top-nav-item
+              a(href='工具大全_文章原创度.html') 文章原创度
+            li.top-nav-item
+              a(href='工具大全_页面优化建议.html') 页面优化建议
+            li.top-nav-item
+              a(href='工具大全_模拟蜘蛛抓取.html') 模拟蜘蛛抓取
+            li.top-nav-item
+              a(href='工具大全_移动适配检测.html') 移动适配检测
+            li.top-nav-item
+              a(href='工具大全_URL即时提交.html') URL即时提交
+            li.top-nav-item
+              a(href='工具大全_流量分析代码检测.html') 流量分析代码检测
+            li.top-nav-item
+              a(href='工具大全_出站链接检测.html') 出站链接检测
+            li.top-nav-item
+              a(href='工具大全_收录查询.html') 收录查询
+            li.top-nav-item
+              a(href='工具大全_网站基础信息查询.html') 网站基础信息查询
+            li.top-nav-item
+              a(href='工具大全_http状态码查询.html') http状态码查询
+        .header-link 数据服务
+        .small-logo
+          span.text-white WebInsights
+        .mobile-menu
+          button.navbar-toggle.mobile-menu-toggle.text-white(type='button', data-toggle='collapse', data-target='#mobile-collapse', aria-expanded='true')
+            i.fa.fa-chevron-down
+          #mobile-collapse.mobile-navbar.collapse(aria-expanded='true')
+            ul.nav.navbar-nav
+              li
+                a.active(href='#') 账户信息
+              li
+                a(href='#') 修改密码
+              li
+                a(href='#') 套餐管理
+              li
+                a(href='#') 订餐管理
+              li
+                a(href='#') 发票管理
+              li
+                a(href='#') 我的消息
+              li
+                a(href='#') 退出
+        .navbar-right.m-hide
+          ul.nav.navbar-nav.no-borders
+            li
+              a.right-sidebar-toggle(href='javascript:void(0)')
+                span 帮助
+            li.dropdown
+              a(href='javascript:void(0)')
+                img(src='img/nav-right.png')
+              ul.top-nav.m-t0(aria-expanded='true')
+                li.top-nav-item
+                  a(href='个人中心_账户信息.html') 账户信息
+                li.top-nav-item
+                  a(href='个人中心_修改密码.html') 修改密码
+                li.top-nav-item
+                  a(href='个人中心_套餐管理.html') 套餐管理
+                li.top-nav-item
+                  a(href='个人中心_订单管理.html') 订单管理
+                li.top-nav-item
+                  a(href='#') 发票管理
+                li.top-nav-item
+                  a(href='#') 我的消息
+                li.top-nav-item
+                  a(href='#') 退出
+
+  if showLeftMenu
+    h1 左侧
+
+  //- 在显示或隐藏左侧时，内容部分的样式可能有所改变
+  if showLeftMenu
+    #wrapper(style= showTop ? '' : 'top: 0;')
+      block box-content
+  unless showLeftMenu
+    #wrapper(style= (showTop ? '' : 'top: 0;') + 'margin-left:0px;')
+      block box-content
+
+block append scripts
+  include shared/project-bundle.html
