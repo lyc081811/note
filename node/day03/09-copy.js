@@ -26,7 +26,7 @@ const path = require('path');
 // 文件的读取流并来没有读出正式的数据
 var reader = fs.createReadStream('F:\\apache.zip');
 var writer = fs.createWriteStream('G:\\apache.zip');
-
+/*
 fs.stat('F:\\apache.zip', (err, stats) => {
 	if (stats) {
 		var readTotal = 0;
@@ -37,4 +37,12 @@ fs.stat('F:\\apache.zip', (err, stats) => {
 		});
 	});
 	}
+});*/
+
+write.on('pipe', src => {
+	console.log( src === reader); // true
 });
+// pipe()的方法
+reader // 读取流
+	.pipe(write)
+	.pipe();
