@@ -1,20 +1,11 @@
 <img src="../img/jn-title.png" class="jn-title">
 .header
-	//- - items = [
-	//- 		{name: '首页', url: '/'},
-	//- 		{name: '基地简介', url: '/jdjs'},
-	//- 		{name: '曲阜教学点', url: '/qufujxd'},
-	//- 		{name: '邹城教学点', url: '/zoucjxd'},
-	//- 		{name: '嘉祥教学点', url: '/jiaxjxd'},
-	//- 		{name: '教学掠影', url: '/jxly'},
-	//- 		{name: '儒家圣贤简介', url: '/rjsxjj'}
-	//- 	];
-	//- - isCur = 0;
-	//- ul.nav.clearfix
-	//- 	each item, i in items
-	//- 		- if idCur == i
-	//- 			li
-	//- 				a.nav-list.active(href='#{item.url}') item.name
-	//- 		- else
-	//- 			li
-	//- 				a.nav-list(href='#{item.url}') item.name
+	- var items = [{"name": "首页", "url": "/"},{"name": "基地简介", "url": "/jdjs"},{"name": "曲阜教学点", "url": "/qufujxd"},{"name": "邹城教学点", "url": "/zoucjxd"},{"name": "嘉祥教学点", "url": "/jiaxjxd"},{"name": "教学掠影", "url": "/jxly"},{"name": "儒家圣贤简介", "url": "/rjsxjj"},{"name": "教学宣传资料","url":"jxxczl.html"}];
+	ul.nav.clearfix
+		each item, index in items
+			- if (isCur === index)
+				li
+					a.nav-list.active(href="#{item.url}")= item.name
+			- else
+				li
+					a.nav-list(href="#{item.url}")= item.name

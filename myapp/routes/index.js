@@ -23,5 +23,8 @@ router.get('/jxly', function (req, res, next) {
 router.get('/rjsxjj', function (req, res, next) {
   res.render('pages/rjsxjj');
 });
+router.get('/jxxczl', function (req, res, next) {
+  res.render('pages/jxxczl');
+});
 
 module.exports = router;

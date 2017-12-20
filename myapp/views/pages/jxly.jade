@@ -1,49 +1,53 @@
 extends ../layout
-
+block append links
+    <link rel="stylesheet" type="text/css" href="css/zoom.css">
+    <script type="text/javascript" src="js/zoom.js"></script>
+block vars
+    - var isCur = 5;
 block content
     .container(style='height: 550px;overflow-y: auto;')
         ul.people-wrapper.jxly.clearfix
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly01.jpg', data-action='zoom')
-                p.title(title='中央党校第43期中青一班') 中央党校第43期中青一班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly01.jpg', data-action='zoom')
+                    p.title(title='中央党校第43期中青一班') 中央党校第43期中青一班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly02.jpg', data-action='zoom')
-                p.title(title='国家行政学院第24期厅局级公务员进修班') 国家行政学院第24期厅局级公务员进修班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly02.jpg', data-action='zoom')
+                    p.title(title='国家行政学院第24期厅局级公务员进修班') 国家行政学院第24期厅局级公务员进修班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly03.jpg', data-action='zoom')
-                p.title(title='中国浦东干部学院中西部地区中青年培训班') 中国浦东干部学院中西部地区中青年培训班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly03.jpg', data-action='zoom')
+                    p.title(title='中国浦东干部学院中西部地区中青年培训班') 中国浦东干部学院中西部地区中青年培训班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly04.jpg', data-action='zoom')
-                p.title(title='全国组织干部学院中管企业组织人事部门负责人培训班') 全国组织干部学院中管企业组织人事部门负责人培训班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly04.jpg', data-action='zoom')
+                    p.title(title='全国组织干部学院中管企业组织人事部门负责人培训班') 全国组织干部学院中管企业组织人事部门负责人培训班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly05.jpg', data-action='zoom')
-                p.title(title='山东省委党校第43期市厅级领导干部进修班') 山东省委党校第43期市厅级领导干部进修班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly05.jpg', data-action='zoom')
+                    p.title(title='山东省委党校第43期市厅级领导干部进修班') 山东省委党校第43期市厅级领导干部进修班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly06.jpg', data-action='zoom')
-                p.title(title='山东行政学院处级公务员培训班') 山东行政学院处级公务员培训班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly06.jpg', data-action='zoom')
+                    p.title(title='山东行政学院处级公务员培训班') 山东行政学院处级公务员培训班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly07.jpg', data-action='zoom')
-                p.title(title='山东省干部学院县（市、区）委组织部长培训班') 山东省干部学院县（市、区）委组织部长培训班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly07.jpg', data-action='zoom')
+                    p.title(title='山东省干部学院县（市、区）委组织部长培训班') 山东省干部学院县（市、区）委组织部长培训班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly08.jpg', data-action='zoom')
-                p.title(title='福建省委党校第50期厅级干部进修班') 福建省委党校第50期厅级干部进修班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly08.jpg', data-action='zoom')
+                    p.title(title='福建省委党校第50期厅级干部进修班') 福建省委党校第50期厅级干部进修班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly09.jpg', data-action='zoom')
-                p.title(title='中国浦东干部学院非洲国家领导干部研修班') 中国浦东干部学院非洲国家领导干部研修班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly09.jpg', data-action='zoom')
+                    p.title(title='中国浦东干部学院非洲国家领导干部研修班') 中国浦东干部学院非洲国家领导干部研修班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly10.jpg', data-action='zoom')
-                p.title(title='中国浦东干部学院越南司局级干部培训班') 中国浦东干部学院越南司局级干部培训班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly10.jpg', data-action='zoom')
+                    p.title(title='中国浦东干部学院越南司局级干部培训班') 中国浦东干部学院越南司局级干部培训班
             li
-            a#bigImg.people-list(target='_blank')
-                img(src='../img/jxly11.jpg', data-action='zoom')
-                p.title(title='中国浦东干部学院2017年斐济高级公务员研修班') 中国浦东干部学院2017年斐济高级公务员研修班
+                a#bigImg.people-list(target='_blank')
+                    img(src='img/jxly11.jpg', data-action='zoom')
+                    p.title(title='中国浦东干部学院2017年斐济高级公务员研修班') 中国浦东干部学院2017年斐济高级公务员研修班
