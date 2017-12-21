@@ -10,6 +10,23 @@ var users = require('./routes/users');
 
 var app = express();
 
+// mockdata
+// var myData = require('./data.json');
+
+// var rjsxjj = myData.rjsxjj;
+
+// var apiRoutes = express.Router();
+// apiRoutes.get('/rjsxjj', function(req, res) {
+// 	res.json({
+// 		errno: 0,
+// 		data: rjsxjj
+// 	})
+// });
+
+// app.use('/api', apiRoutes);
+
+// mockdata end
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
