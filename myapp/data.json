@@ -1,5 +1,37 @@
 {
 	"rjsxjj": {
+		"people": {
+			"zoug": {
+				"url": "rjsxjj-zhoug.html",
+				"src": "../img/zhoug.jpg",
+				"title": "“元圣”周公"
+			},
+			"kongz": {
+				"url": "rjsxjj-kongz.html",
+				"src": "../img/kongz.jpg",
+				"title": "“至圣”孔子"
+			},
+			"yanz": {
+				"url": "rjsxjj-yanz.html",
+				"src": "../img/yanz.jpg",
+				"title": "“复圣”颜子"
+			},
+			"zengz": {
+				"url": "rjsxjj-zengz.html",
+				"src": "../img/zengz.jpg",
+				"title": "“宗圣”曾子"
+			},
+			"zisiz": {
+				"url": "rjsxjj-zisiz.html",
+				"src": "../img/zisiz.jpg",
+				"title": "“述圣”子思子"
+			},
+			"mengz": {
+				"url": "rjsxjj-mengz.html",
+				"src": "../img/mengz.jpg",
+				"title": "“亚圣”孟子"
+			}
+		},
 		"zoug": {
 			"title": "“元圣”周公简介",
 			"img": "../img/zhoug.jpg",
@@ -14,6 +46,7 @@
 			]
 		},
 		"kongz": {
+			"id": "kongzi",
 			"title": "“至圣”孔子简介",
 			"img": "../img/kongz.jpg",
 			"desc": [

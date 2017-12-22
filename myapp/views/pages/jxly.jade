@@ -5,8 +5,8 @@ block append links
 block vars
     - var isCur = 5;
 block content
-    .container(style='height: 550px;overflow-y: auto;')
-        ul.people-wrapper.jxly.clearfix
+    .container(style='height: 550px;overflow-y: auto;position: static')
+        ul.people-items.jxly.clearfix
             li
                 a#bigImg.people-list(target='_blank')
                     img(src='img/jxly01.jpg', data-action='zoom')

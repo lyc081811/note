@@ -6,24 +6,23 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
 // mockdata
-// var myData = require('./data.json');
+var myData = require('./data.json');
 
-// var rjsxjj = myData.rjsxjj;
+var rjsxjj = myData.rjsxjj;
 
-// var apiRoutes = express.Router();
-// apiRoutes.get('/rjsxjj', function(req, res) {
-// 	res.json({
-// 		errno: 0,
-// 		data: rjsxjj
-// 	})
-// });
+var apiRoutes = express.Router();
+apiRoutes.get('/rjsxjj', function(req, res) {
+	res.json({
+		errno: 0,
+		data: rjsxjj
+	})
+});
 
-// app.use('/api', apiRoutes);
+app.use('/api', apiRoutes);
 
 // mockdata end
 
@@ -40,7 +39,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
