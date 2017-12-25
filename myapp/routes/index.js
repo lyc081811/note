@@ -6,16 +6,14 @@ router.get('/', function(req, res, next) {
 	res.render('index');
 });
 
-
-
-function getRouter(url) {
-	url.forEach(x => {
+function getRouter(param) {
+	param.forEach(x => {
 		router.get('/' + x, function (req, res, next) {
 			res.render('pages/' + x);
 		});
 	})
 }
-var arr = ['jdjs','jxxczl', 'qufujxd', 'zoucjxd', 'jiaxjxd', 'jxly', 'rjsxjj', 'jxxczl'];
-getRouter(arr);
+var params = ['jdjs','jxxczl', 'qufujxd', 'zoucjxd', 'jiaxjxd', 'jxly', 'rjsxjj','rjsxjj2', 'jxxczl'];
+getRouter(params);
 
 module.exports = router;
