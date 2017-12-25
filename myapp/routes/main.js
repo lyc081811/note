@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-	res.render('index');
-});
-
 
 
 function getRouter(url) {
@@ -17,5 +12,3 @@ function getRouter(url) {
 }
 var arr = ['jdjs','jxxczl', 'qufujxd', 'zoucjxd', 'jiaxjxd', 'jxly', 'rjsxjj', 'jxxczl'];
 getRouter(arr);
-
-module.exports = router;
