@@ -1,0 +1,15 @@
+extends ../layout
+block vars
+    - var isCur = 6;
+block content
+    .container
+block append links
+    script(type='text/javascript', src='js/handlebars-v4.0.11.js')
+    script(type='text/javascript', src='js/source.js')
+    script(id="tpl2", type="text/x-handlebars-template")
+        {{#each this}}
+            h3= {{title}}
+            img(src="{{img}}", class="people")
+            each txt in {{desc}}
+                .txt= {{txt}}
+         {/each}

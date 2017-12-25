@@ -1,7 +1,3 @@
-$(window).on('load', function(){
-	$('.footer').load('../pages/include/footer.html');
-
-});
 function GetQueryString(name)
 {
 	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -9,6 +5,12 @@ function GetQueryString(name)
 	if(r!=null) {return  unescape(r[2]); }
 	return null;
 }
+
+$(window).on('load', function(){
+	$('.footer').load('../pages/include/footer.html');
+
+});
+
 $(document).ready(function() {
 	var data = {
 		"01": [

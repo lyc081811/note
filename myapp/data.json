@@ -2,32 +2,32 @@
 	"rjsxjj": {
 		"people": {
 			"zoug": {
-				"url": "rjsxjj-zhoug.html",
+				"url": "rjsxjj2?people=zoug",
 				"src": "../img/zhoug.jpg",
 				"title": "“元圣”周公"
 			},
 			"kongz": {
-				"url": "rjsxjj-kongz.html",
+				"url": "rjsxjj2?people=kongz",
 				"src": "../img/kongz.jpg",
 				"title": "“至圣”孔子"
 			},
 			"yanz": {
-				"url": "rjsxjj-yanz.html",
+				"url": "rjsxjj2?people=yanz",
 				"src": "../img/yanz.jpg",
 				"title": "“复圣”颜子"
 			},
 			"zengz": {
-				"url": "rjsxjj-zengz.html",
+				"url": "rjsxjj2?people=zengz",
 				"src": "../img/zengz.jpg",
 				"title": "“宗圣”曾子"
 			},
 			"zisiz": {
-				"url": "rjsxjj-zisiz.html",
+				"url": "rjsxjj2?people=zisiz",
 				"src": "../img/zisiz.jpg",
 				"title": "“述圣”子思子"
 			},
 			"mengz": {
-				"url": "rjsxjj-mengz.html",
+				"url": "rjsxjj2?people=mengz",
 				"src": "../img/mengz.jpg",
 				"title": "“亚圣”孟子"
 			}
