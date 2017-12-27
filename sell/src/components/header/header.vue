@@ -248,7 +248,7 @@ export default {
           .title
             display: flex
             width: 80%
-            margin: 28px auto 24px auto
+            margin: 28px auto 24px
             .line
               flex: 1
               position: relative

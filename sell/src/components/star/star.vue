@@ -39,7 +39,6 @@ const CLS_OFF = 'off';
                 return result;
             }
         }
-
     };
 </script>
 
