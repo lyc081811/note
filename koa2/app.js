@@ -3,8 +3,8 @@ const Koa = require('koa')
 const router = require('koa-router')()
 const app = new Koa()
 
- // 添加路由
- router.get('/', async (ctx, next) => {
+// 添加路由
+router.get('/', async (ctx, next) => {
     ctx.response.body = `<h1>index page</h1>`
 })
 
@@ -13,9 +13,12 @@ router.get('/home', async (ctx, next) => {
 })
 
 router.get('/404', async (ctx, next) => {
-    ctx.response.body = '<h1>404 Not Found</h1>'
+    ctx.response.body = '<h1>404 pages</h1>'
 })
-
+router.all('/*', async (ctx, next) => {
+	ctx.response.status = 404;
+	ctx.response.body = '<h1>404 NOT FOUND</h1>'
+})
  // 调用路由中间件
  app.use(router.routes())
 
