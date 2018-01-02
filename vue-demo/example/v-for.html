@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-for</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <hr>
+    <div id="app">
+        <ul>
+            <li v-for="item in items2">{{item}}</li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="(todo, index) in todos2">{{index + 1}}: {{todo.name}}今年{{todo.age}}</li>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: [1, 435, 2, 56],
+                todos: [
+                    {
+                        name: 'jspang',
+                        age: 23
+                    },
+                    {
+                        name: 'guoguo',
+                        age: 24
+                    },
+                    {
+                        name: 'king',
+                        age: 2
+                    }
+                ]
+            },
+            computed: {
+                items2: function () {
+                    return this.items.sort(num);
+                },
+                todos2: function() {
+                    return sortByKey(this.todos, 'age');
+                }
+            }
+        });
+        function num(a, b) {
+            return a - b;
+        }
+        //数组对象方法排序:
+        function sortByKey(array, key) {
+            return array.sort(function (a, b) {
+                var x = a[key];
+                var y = b[key];
+                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            });
+        }
+    </script>
+</body>
+
+</html>
