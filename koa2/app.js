@@ -1,27 +1,27 @@
 const Koa = require('koa')
-// 注意 require('koa-router') 返回的是函数:
-const router = require('koa-router')()
+const path = require('path')
+const bodyParser = require('koa-bodyparser')
+const nunjucks = require('koa-nunjucks-2')
+const staticFiles = require('koa-static')
+
 const app = new Koa()
 
-// 添加路由
-router.get('/', async (ctx, next) => {
-    ctx.response.body = `<h1>index page</h1>`
-})
+const router = require('./router/router')
 
-router.get('/home', async (ctx, next) => {
-    ctx.response.body = '<h1>HOME page</h1>'
-})
+// 指定 public目录为静态资源目录，用来存放 js css images 等
+app.use(staticFiles(path.resolve(__dirname, "./public")))
 
-router.get('/404', async (ctx, next) => {
-    ctx.response.body = '<h1>404 pages</h1>'
-})
-router.all('/*', async (ctx, next) => {
-	ctx.response.status = 404;
-	ctx.response.body = '<h1>404 NOT FOUND</h1>'
-})
- // 调用路由中间件
- app.use(router.routes())
+app.use(nunjucks({
+    ext: 'html',
+    path: path.join(__dirname, 'views'),// 指定视图目录
+    nunjucksConfig: {
+        trimBlocks: true // 开启转义 防Xss
+    }
+}));
 
-app.listen(3000, ()=>{
-  console.log('server is running at http://localhost:3000')
+app.use(bodyParser())
+router(app);
+
+app.listen(3000, () => {
+    console.log('server is running at http://localhost:3000')
 })
