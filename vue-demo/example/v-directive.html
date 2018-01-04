@@ -19,8 +19,8 @@
     <button onclick="unbind()"></button>
     <script>
         Vue.directive('c', {
-            bind: function () {//被绑定
-                console.log('1 - bind');
+            bind: function (el, binding) {//被绑定
+                el.style.color = binding.value;
             },
             inserted: function () {//绑定到节点
                 console.log('2 - inserted');
