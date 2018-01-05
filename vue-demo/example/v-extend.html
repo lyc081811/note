@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>v-extend</title>
+    <title>extend扩展实例构造器</title>
     <script src="../assets/js/vue.js"></script>
 </head>
+
 <body>
     <h1>extend扩展实例构造器</h1>
     <hr>
     <div id="app">
         <author></author>
-        <p id="author"></p>
+        <p class="author"></p>
     </div>
     <script>
-        var authorURL = Vue.extend({
-            template: '<p><a :href="authorURL">{{msg}}</a></p>',
-            data: function () {
+        var authorExtend = Vue.extend({
+            template: "<p><a :href='url'>{{authorName}}</a></p>",
+            data: function(){
                 return {
-                    msg: 'jspang',
-                    authorURL: 'http://www.baidu.com'
-                };
+                    authorName: 'jspang',
+                    url: 'http://www.baidu.com'
+                }
             }
-        })
-        new authorURL().$mount('#author');
-        new authorURL().$mount('author');
+        });
+        new authorExtend().$mount('author');
+        new authorExtend().$mount('.author');
     </script>
 </body>
+
 </html>
