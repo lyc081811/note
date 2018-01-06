@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>watch</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>watch</h1>
+    <hr>
+    <div id="app">
+        <p>{{du}}</p>
+        <p>{{chuanyi}}</p>
+        <button @click="change">change</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                du: 14,
+                chuanyi: '裤子'
+            },
+            methods: {
+                change: function () {
+                    this.du += 5;
+                }
+            },
+            // watch: {
+            //     du: function (newDu, old) {
+            //         if(newDu > 25) {
+            //             this.chuanyi = '毛衣';
+            //         }
+            //     }
+            // }
+        })
+        app.$watch('du', function(newDu, old) {
+            if(newDu > 25) {
+                        this.chuanyi = '毛衣';
+                    }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>hello world</h1>
+    <hr>
+    <div id="app">
+        <jspang></jspang>
+        <papa he-re="China"></papa>
+        <papa :he-re="msg"></papa>
+    </div>
+    <script>
+        Vue.component('jspang', {
+            template: `<div style="color: red;">我是一个全局的组件</div>`
+        });
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: '四川'
+            },
+            components: {
+                'papa': {
+                    props: ['heRe'],
+                    template: `<div style="color: #333;">我是一个局部的组件 where? {{heRe}}</div>`                    
+                }
+            }
+        });
+    </script>
+</body>
+</html>

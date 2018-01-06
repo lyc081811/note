@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>hello world</h1>
+    <hr>
+    <div id="app">
+        {{msg}}
+        ${msg}
+        <br>
+        <button @click="add2">+</button>
+    </div>
+    <script>
+        var extendsObj = {
+            updated: function() {
+                console.log('我是扩展的updated')
+            },
+            methods: {
+                add2: function() {
+                    console.log('我是扩展的方法!');
+                    this.msg ++;
+                }
+            }
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: 1
+            },
+            methods: {
+                add: function() {
+                    console.log('我是原生的方法!');
+                    this.msg ++;
+                }
+            },
+            extends: extendsObj,
+            delimiters:['${','}']
+
+        });
+        
+    </script>
+</body>
+</html>

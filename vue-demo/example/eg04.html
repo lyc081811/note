@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="../assets/js/vue.js"></script>
+    <script src="../assets/js/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <h1>hello world</h1>
+    <hr>
+    <div id="app">
+        <jspang>
+            <span slot="url">{{jspang.url}}</span>
+            <span slot="name">{{jspang.name}}</span>
+            <span slot="skill">{{jspang.skill}}</span>
+        </jspang>
+    </div>
+    <template id="tpl">
+        <div>
+            <p>地址: <slot name="url"></slot></p>
+            <p>名字: <slot name="name"></slot></p>
+            <p>技能: <slot name="skill"></slot></p>
+        </div>
+    </template>
+    <script>
+        var jspang = {
+            template: '#tpl'
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                jspang: {
+                    url: 'http://www.baidu.com/',
+                    name: '百度',
+                    skill: '搜索'
+                }
+            },
+            components: {jspang}
+        });
+    </script>
+</body>
+</html>

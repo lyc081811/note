@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>hello world</h1>
+    <hr>
+    <div id="app">
+        <component :is="who"></component>
+        <button @click="change">change</button>
+       <component-d></component-d>
+    </div>
+    <script>
+        var componentA = {
+            template: '<div style="color: red;">i am componentA!</div>'
+        }
+        var componentB = {
+            template: '<div style="color:#000;">i am componentB!</div>'
+        }
+        var componentC = {
+            template: '<div style="color: #074;">i am componentC!</div>'
+        }
+        var componentD = {
+            template: '<div style="color: #074;">i am componentS!<componentC></componentC></div>',
+            components: {componentC}
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                who: 'componentA'
+            },
+            methods: {
+                change: function(){
+                    if(this.who === 'componentA') {
+                        this.who = 'componentB';
+                    }
+                    else if (this.who === 'componentB') {
+                        this.who = 'componentC';
+                    } else {
+                        this.who = 'componentA';
+                    }
+                }
+            },
+            components: {
+                componentA,
+                componentB,
+                componentC,
+                componentD
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>hello world</h1>
+    <hr>
+    <div id="app">
+        {{msg}}
+        <br>
+        <button @click="add">+</button>
+    </div>
+    <script>
+        var addConsole = {
+            updated: function(){
+                console.log('变了'+this.msg)
+            }
+        };
+        Vue.mixin({
+            updated: function(){
+                console.log('我是全局的mixins')
+            }
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: 1
+            },
+            methods: {
+                add: function() {
+                    this.msg ++;
+                }
+            },
+            mixins: [addConsole],
+            updated: function() {
+                console.log('我是原生的,后执行')
+            }
+        });
+        
+    </script>
+</body>
+</html>

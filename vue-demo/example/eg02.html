@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello world</title>
+    <script src="../assets/js/vue.js"></script>
+    <script src="../assets/js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <hr>
+    <div id="app">
+
+    </div>
+    <p>
+        <button onclick="destroy()">卸载</button>
+        <button onclick="reload()">刷新</button>
+        <button onclick="tick()">修改</button>
+    </p>
+    <script>
+        var jspang = Vue.extend({
+            template: `<p>{{msg}}</p>`,
+            data: function () {
+                return {
+                    msg: 'hello extend!'
+                };
+            },
+            mounted: function () {
+                console.log('创建了');
+            },
+            destroyed: function () {
+                console.log('destroyed');
+            },
+            updated: function () {
+                console.log('又创建了');
+            }
+        });
+        var vm = new jspang().$mount('#app');
+        function destroy() {
+            vm.$destroy();
+        };
+        function reload() {
+            vm.$forceUpdate();
+        };
+        //当Vue构造器里的data值被修改完成后会调用这个方法，也相当于一个钩子函数吧，和构造器里的updated生命周期很像。
+        function tick() {
+            vm.msg = "update message info ";
+            vm.$nextTick(function () {
+                console.log('message更新完后我被调用了');
+            })
+        }
+    </script>
+</body>
+
+</html>
