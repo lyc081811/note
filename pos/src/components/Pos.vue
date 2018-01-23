@@ -9,12 +9,15 @@
               <el-table-column prop="count" label="量" width="50"></el-table-column>
               <el-table-column prop="price" label="金额" width="70"></el-table-column>
               <el-table-column label="操作" width="100" fixed="right">
-                <template > 
-                  <el-button type="text" size="small">删除</el-button>
-                  <el-button type="text" size="small">增加</el-button>
+                <template>
+                  <el-button type="text" size="small" @click="delGood(scope.row)">删除</el-button>
+                  <el-button type="text" size="small" @click="addOrderList(scope.row)">增加</el-button>
                 </template>
               </el-table-column>
             </el-table>
+            <div class="totalDiv">
+              数量: 0
+            </div>
             <div class="div-btn">
               <el-button type="warning">挂单</el-button>
               <el-button type="danger">删除</el-button>
@@ -31,7 +34,7 @@
         <div class="often-goods" style="overflow: hidden;">
           <div class="title">常用列表</div>
           <ul  class="often-goods-list">
-            <li v-for="food in oftenGoods"  class="often-goods-list">
+            <li v-for="food in oftenGoods"  class="often-goods-list" @click="addOrderList(food)">
               <span>{{food.goodsName}}</span>
               <span class="o-price">￥{{food.price}}元</span>
             </li>
@@ -94,7 +97,9 @@ export default {
       type0Goods:[],
       type1Goods:[],
       type2Goods:[],
-      type3Goods:[]
+      type3Goods:[],
+      totalMoney: 0,
+      totalCount: 0
     }
   },
   created () {
@@ -109,7 +114,6 @@ export default {
 
     axios.get('http://jspang.com/DemoApi/typeGoods.php')
     .then(rep => {
-      console.log(rep);
       this.type0Goods = rep.data[0];
       this.type1Goods = rep.data[1];
       this.type2Goods = rep.data[2];
@@ -121,7 +125,47 @@ export default {
   },
   mounted () {
     var orderHeight = document.body.clientHeight
-    document.getElementById('order-list').style.height = orderHeight + 'px'
+    document.getElementById('order-list').style.height = orderHeight + 'px';
+
+  },
+  updated () {
+    // console.log(this.tableDate);
+  },
+  methods: {
+    addOrderList (goods) {
+      // 商品是否存在
+      let isHave = false;
+      for (let i = 0; i < this.tableDate.length; i++) {
+        if (goods.goodsId == this.tableDate[i].goodsId) {
+          isHave = true;
+        }
+      }
+      this.$message({
+        message: 'nihc',
+        type: 'success'
+      })
+      // 根据判断写逻辑
+      if (isHave) {
+        //改变列表中数组数量
+        let arr = this.tableDate.filter(good => {
+          return good.goodsId == goods.goodsId;
+        })
+        arr[0].count++;
+      } else {
+        //不存在就推入数组
+        let newGoods = { goodsId: goods.goodsId, goodsName: goods.goodsName, price: goods.price, count: 1 };
+        this.tableDate.push(newGoods);
+      }
+      this.tableDate.forEach(el => {
+        this.totalCount += el.count;
+        this.totalMoney = this.totalMoney + el.count * el.price;
+      });
+    },
+    delGood (goods) {
+      this.tableDate = this.tableDate.filter(a => {
+        return a.goodsId != goods.goodsId;
+      })
+    }
   }
 }
 </script>
@@ -131,6 +175,11 @@ export default {
   background-color: #f9fafc;
   border-right: 1px solid #c0ccda;
 }
+.totalDiv {
+  background-color: #fff;
+  padding: 10px;
+}
+
 .div-btn {
   margin-top: 20px;
   text-align: center;
@@ -148,9 +197,10 @@ export default {
     padding:10px;
     margin:5px;
     background-color:#fff;
+    cursor: pointer;
    }
   .o-price{
-    color:#58B7FF; 
+    color:#58B7FF;
    }
    .cookList li{
        list-style: none;
@@ -162,10 +212,10 @@ export default {
        padding: 2px;
        float: left;
        margin: 2px;
- 
+       cursor: pointer;
    }
    .cookList li span{
-       
+
         display: block;
         float: left;
    }
@@ -176,7 +226,7 @@ export default {
        font-size: 18px;
        padding-left: 10px;
        color:brown;
- 
+
    }
    .foodPrice{
        font-size: 16px;
