@@ -20,7 +20,7 @@
             </div>
             <div class="div-btn">
               <el-button type="warning">挂单</el-button>
-              <el-button type="danger">删除</el-button>
+              <el-button type="danger" @click="delAll">删除</el-button>
               <el-button type="success">结账</el-button>
             </div>
           </el-tab-pane>
@@ -109,7 +109,7 @@ export default {
       this.oftenGoods = rep.data;
     })
     .catch(err => {
-      laert('没网好不好!')
+      alert('没网好不好!')
     })
 
     axios.get('http://jspang.com/DemoApi/typeGoods.php')
@@ -120,16 +120,13 @@ export default {
       this.type3Goods = rep.data[3];
     })
     .catch(err => {
-      laert('没网好不好!')
+      alert('没网好不好!')
     })
   },
   mounted () {
     var orderHeight = document.body.clientHeight
     document.getElementById('order-list').style.height = orderHeight + 'px';
 
-  },
-  updated () {
-    // console.log(this.tableDate);
   },
   methods: {
     addOrderList (goods) {
@@ -141,7 +138,7 @@ export default {
         }
       }
       this.$message({
-        message: 'nihc',
+        message: '已添加!',
         type: 'success'
       })
       // 根据判断写逻辑
@@ -165,6 +162,23 @@ export default {
       this.tableDate = this.tableDate.filter(a => {
         return a.goodsId != goods.goodsId;
       })
+    },
+    delAll () {
+      if (this.tableDate.length === 0) {
+        this.$message({
+          message: '您还没有添加商品',
+          type: 'error'
+        })
+      } else {
+        this.tableDate = [],
+          this.totalMoney = 1,
+          this.totalCount = 0,
+          this.$message({
+            message: '已删除所有商品!',
+            type: 'warning'
+          })
+      }
+
     }
   }
 }

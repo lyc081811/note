@@ -1,7 +1,28 @@
-const Koa = require('koa');
+const Koa = require("koa");
 const app = new Koa();
 app.use(async ctx => {
-    ctx.body = 'hello koa2';
-})
-app.listen(1000);
-console.log('server start!')
+  let url = ctx.url;
+
+  //从request中获取GET请求
+  let request = ctx.request;
+  let req_query = request.query;
+  let req_querystring = request.querystring;
+
+  //从上下文中直接获取
+  let ctx_query = ctx.query;
+  let ctx_querystring = ctx.querystring;
+
+  ctx.body = {
+    // url,
+    request,
+    ctx
+    // req_query,
+    // req_querystring,
+    // ctx_query,
+    // ctx_querystring
+  };
+});
+
+app.listen(3000, () => {
+  console.log("[demo] server is starting at port 3000");
+});
