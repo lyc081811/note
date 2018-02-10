@@ -39,5 +39,5 @@ var render = ()=> {
 	}
 	process.stdout.write(arr[cur++]);
 };
-    setInterval(render, 1000 / fps);
+setInterval(render, 1000 / fps);
 

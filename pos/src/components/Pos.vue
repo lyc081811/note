@@ -185,19 +185,19 @@ export default {
 </script>
 
 <style scoped>
-.pos-order {
-  background-color: #f9fafc;
-  border-right: 1px solid #c0ccda;
-}
-.totalDiv {
-  background-color: #fff;
-  padding: 10px;
-}
+  .pos-order {
+    background-color: #f9fafc;
+    border-right: 1px solid #c0ccda;
+  }
+  .totalDiv {
+    background-color: #fff;
+    padding: 10px;
+  }
 
-.div-btn {
-  margin-top: 20px;
-  text-align: center;
-}
+  .div-btn {
+    margin-top: 20px;
+    text-align: center;
+  }
  .title{
     height: 20px;
     border-bottom:1px solid #D3DCE6;
