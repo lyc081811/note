@@ -1,0 +1,10 @@
+body {
+    background-color: #333;
+    background-image: url(http://localhost:1012/img/d1c98498ccb9de4f4015b4ac15d8a873.png);
+    color: red;
+    text-align: center;
+    font-size: 20px;
+}#title {
+  line-height: 30px;
+  background: #999;
+}
