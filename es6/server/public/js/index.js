@@ -61,24 +61,133 @@
 
 	'use strict';
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	// 类
 	{
-		console.log(111); // 0b 二进制数开头
-		console.log(501); // 0b 8进制数开头
+		//基本定义和生成实例
+		var Parent = function Parent() {
+			var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
+
+			_classCallCheck(this, Parent);
+
+			this.name = name;
+		};
+
+		var v_parent = new Parent('v');
+		console.log(v_parent);
 	}
 	{
-		console.log('15', Number.isFinite(15)); // 是否无穷
-		console.log('NaN', Number.isFinite(NaN)); // 是否无穷
-		console.log(Number.isNaN(NaN));
+		//继承
+		var _Parent = function _Parent() {
+			var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
+
+			_classCallCheck(this, _Parent);
+
+			this.name = name;
+		};
+
+		var Child = function (_Parent2) {
+			_inherits(Child, _Parent2);
+
+			function Child() {
+				var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'child';
+
+				_classCallCheck(this, Child);
+
+				//继承父类必须在第一行
+				var _this = _possibleConstructorReturn(this, (Child.__proto__ || Object.getPrototypeOf(Child)).call(this, name));
+
+				_this.type = 'child';
+				return _this;
+			}
+
+			return Child;
+		}(_Parent);
+
+		console.log(new Child());
 	}
 	{
-		console.log(Number.isInteger(25.0)); // 是否是整数 .0也是整数
+		var _Parent3 = function () {
+			function _Parent3() {
+				var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
+
+				_classCallCheck(this, _Parent3);
+
+				this.name = name;
+			}
+
+			_createClass(_Parent3, [{
+				key: 'longName',
+				get: function get() {
+					return 'long' + this.name;
+				},
+				set: function set(value) {
+					this.name = value;
+				}
+			}]);
+
+			return _Parent3;
+		}();
+
+		var v = new _Parent3();
+		console.log('get', v.longName);
+		v.longName = 'hello';
+		console.log('set', v.longName);
 	}
 	{
-		console.log(Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER, Math.PI);
-		console.log('10', Number.isSafeInteger(10)); // 是否在有效范围内
-		console.log(Math.trunc(4.9)); // 只取整数部分
-		console.log(Math.sign(-5), Math.sign(0), Math.sign(5), Math.sign('10'), Math.sign('a')); // 判断 -1  0 1 
-		console.log(Math.cbrt(-1), Math.cbrt(8)); // 立方根
+		//静态方法
+		var _Parent4 = function () {
+			function _Parent4() {
+				var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
+
+				_classCallCheck(this, _Parent4);
+
+				this.name = name;
+			}
+
+			_createClass(_Parent4, null, [{
+				key: 'tell',
+				value: function tell() {
+					// 加static,静态方法
+					console.log('tell');
+				}
+			}]);
+
+			return _Parent4;
+		}();
+
+		_Parent4.tell(); // 静态方法用类去掉用，而不是用的实例
+	}
+	{
+		//静态属性
+		var _Parent5 = function () {
+			function _Parent5() {
+				var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
+
+				_classCallCheck(this, _Parent5);
+
+				this.name = name;
+			}
+
+			_createClass(_Parent5, null, [{
+				key: 'tell',
+				value: function tell() {
+					console.log('tell');
+				}
+			}]);
+
+			return _Parent5;
+		}();
+
+		_Parent5.type = 'test';
+		console.log('静态属性为：', _Parent5.type);
 	}
 
 /***/ })
