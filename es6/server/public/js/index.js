@@ -57,138 +57,92 @@
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__(3);
+
+	__webpack_require__(4);
+
+	__webpack_require__(5);
+
+	__webpack_require__(6);
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	// 类
-	{
-		//基本定义和生成实例
-		var Parent = function Parent() {
-			var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
+	var Timer = function () {
+		function Timer() {
+			_classCallCheck(this, Timer);
+		}
 
-			_classCallCheck(this, Parent);
-
-			this.name = name;
-		};
-
-		var v_parent = new Parent('v');
-		console.log(v_parent);
-	}
-	{
-		//继承
-		var _Parent = function _Parent() {
-			var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
-
-			_classCallCheck(this, _Parent);
-
-			this.name = name;
-		};
-
-		var Child = function (_Parent2) {
-			_inherits(Child, _Parent2);
-
-			function Child() {
-				var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'child';
-
-				_classCallCheck(this, Child);
-
-				//继承父类必须在第一行
-				var _this = _possibleConstructorReturn(this, (Child.__proto__ || Object.getPrototypeOf(Child)).call(this, name));
-
-				_this.type = 'child';
-				return _this;
-			}
-
-			return Child;
-		}(_Parent);
-
-		console.log(new Child());
-	}
-	{
-		var _Parent3 = function () {
-			function _Parent3() {
-				var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
-
-				_classCallCheck(this, _Parent3);
-
-				this.name = name;
-			}
-
-			_createClass(_Parent3, [{
-				key: 'longName',
-				get: function get() {
-					return 'long' + this.name;
-				},
-				set: function set(value) {
-					this.name = value;
+		_createClass(Timer, [{
+			key: 'countdown',
+			value: function countdown(end, update, handle) {
+				var now = new Date().getTime();
+				var self = this;
+				if (now - end) {
+					handle.call(self);
+				} else {
+					var last_time = end - now;
+					var px_s = 1000;
+					var px_m = 1000 * 60;
+					var px_h = 1000 * 60 * 60;
+					var px_d = px_h * 24;
+					var d = math.floor(last_time / px_d);
+					var h = math.floor((last_time - px_d * d) / px_h);
+					var m = math.floor((last_time - px_d * d - px_h * h) / px_m);
+					var s = math.floor((last_time - px_d * d - px_h * h - px_m * m) / px_s);
+					var r = [];
+					if (d > 0) {
+						r.push('<em>' + d + '</em>\u5929');
+					}
+					if (r.length || h > 0) {
+						r.push('<em>' + h + '</em>\u65F6');
+					}
+					if (r.length || m > 0) {
+						r.push('<em>' + m + '</em>\u5206');
+					}
+					if (r.length || s > 0) {
+						r.push('<em>' + s + '</em>\u79D2');
+					}
+					self.last_time = r.join();
+					update.call(self, r.join(''));
+					setTimeout(function () {
+						self.countdown(end, update, handle);
+					}, 1000);
 				}
-			}]);
-
-			return _Parent3;
-		}();
-
-		var v = new _Parent3();
-		console.log('get', v.longName);
-		v.longName = 'hello';
-		console.log('set', v.longName);
-	}
-	{
-		//静态方法
-		var _Parent4 = function () {
-			function _Parent4() {
-				var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
-
-				_classCallCheck(this, _Parent4);
-
-				this.name = name;
 			}
+		}]);
 
-			_createClass(_Parent4, null, [{
-				key: 'tell',
-				value: function tell() {
-					// 加static,静态方法
-					console.log('tell');
-				}
-			}]);
+		return Timer;
+	}();
 
-			return _Parent4;
-		}();
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
 
-		_Parent4.tell(); // 静态方法用类去掉用，而不是用的实例
-	}
-	{
-		//静态属性
-		var _Parent5 = function () {
-			function _Parent5() {
-				var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'aaa';
+	"use strict";
 
-				_classCallCheck(this, _Parent5);
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
 
-				this.name = name;
-			}
-
-			_createClass(_Parent5, null, [{
-				key: 'tell',
-				value: function tell() {
-					console.log('tell');
-				}
-			}]);
-
-			return _Parent5;
-		}();
-
-		_Parent5.type = 'test';
-		console.log('静态属性为：', _Parent5.type);
-	}
+	"use strict";
 
 /***/ })
 /******/ ]);
