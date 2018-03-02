@@ -67,7 +67,7 @@
 
 	__webpack_require__(5);
 
-	__webpack_require__(6);
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lottery/interface.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 /***/ }),
 /* 3 */
@@ -80,6 +80,10 @@
 /***/ (function(module, exports) {
 
 	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -132,14 +136,10 @@
 		return Timer;
 	}();
 
+	exports.default = Timer;
+
 /***/ }),
 /* 5 */
-/***/ (function(module, exports) {
-
-	"use strict";
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports) {
 
 	"use strict";
