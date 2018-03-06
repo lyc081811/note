@@ -20,7 +20,7 @@ class Interface{
 				}
 			})
 		})
-	},
+	}
 	// 获取开奖号码（string）
 	getOpenCode(issue) {
 		let self = this;
@@ -40,7 +40,7 @@ class Interface{
 				} 
 			})
 		})
-	},
+	}
 	// 获取当前状态
 	getState(issue) {
 		let self = this;
@@ -52,6 +52,7 @@ class Interface{
 				},
 				dataType: 'json',
 				success: function(res) {
+					self.setopencode(res.data);
 					resolve.call(self, res);
 				},
 				error: function(err) {

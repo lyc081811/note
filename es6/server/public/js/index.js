@@ -65,15 +65,69 @@
 
 	__webpack_require__(4);
 
-	__webpack_require__(5);
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lottery/calculate.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lottery/interface.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	__webpack_require__(6);
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"jquery\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	// initplayList->初始化奖金玩法和说明
+	var Base = function () {
+		function Base() {
+			_classCallCheck(this, Base);
+		}
+
+		_createClass(Base, [{
+			key: 'initPlayList',
+			value: function initPlayList() {
+				this.play_list.set('r2', {
+					bonus: 6,
+					tip: '123',
+					name: '任2'
+				}).set('r3', {
+					bonus: 19,
+					tip: '456',
+					name: '任3'
+				}).set('r4', {
+					bonus: 79,
+					tip: '789',
+					name: '任4'
+				}).set('任5', {
+					bonus: 540,
+					tip: '任5',
+					name: '任5'
+				}).set('任6', {
+					bonus: 90,
+					tip: '任6',
+					name: '任6'
+				}).set('任7', {
+					bonus: 26,
+					tip: '任7',
+					name: '任7'
+				}).set('任8', {
+					bonus: 9,
+					tip: '任8',
+					name: '任8'
+				});
+			}
+		}]);
+
+		return Base;
+	}();
 
 /***/ }),
 /* 4 */
@@ -139,10 +193,106 @@
 	exports.default = Timer;
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports) {
+/* 5 */,
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _jquery = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"jquery\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Interface = function () {
+		function Interface() {
+			_classCallCheck(this, Interface);
+		}
+
+		_createClass(Interface, [{
+			key: 'getOmit',
+
+			// 获取遗漏数据（string|当前期号）
+			value: function getOmit(issue) {
+				var self = this;
+				return new Promise(function (resolve, reject) {
+					_jquery2.default.ajax({
+						url: '/get/omit',
+						data: {
+							issue: issue
+						},
+						dataType: 'json',
+						success: function success(res) {
+							self.setOmit(res.data);
+							resolve.call(self, res);
+						},
+						error: function error(err) {
+							reject.call(err);
+						}
+					});
+				});
+			}
+			// 获取开奖号码（string）
+
+		}, {
+			key: 'getOpenCode',
+			value: function getOpenCode(issue) {
+				var self = this;
+				return new Promise(function (resolve, reject) {
+					_jquery2.default.ajax({
+						url: '/get/getopencode',
+						data: {
+							issue: issue
+						},
+						dataType: 'json',
+						success: function success(res) {
+							self.setopencode(res.data);
+							resolve.call(self, res);
+						},
+						error: function error(err) {
+							reject.call(err);
+						}
+					});
+				});
+			}
+			// 获取当前状态
+
+		}, {
+			key: 'getState',
+			value: function getState(issue) {
+				var self = this;
+				return new Promise(function (resolve, reject) {
+					_jquery2.default.ajax({
+						url: '/get/getstate',
+						data: {
+							issue: issue
+						},
+						dataType: 'json',
+						success: function success(res) {
+							self.setopencode(res.data);
+							resolve.call(self, res);
+						},
+						error: function error(err) {
+							reject.call(err);
+						}
+					});
+				});
+			}
+		}]);
+
+		return Interface;
+	}();
+
+	exports.default = Interface;
 
 /***/ })
 /******/ ]);

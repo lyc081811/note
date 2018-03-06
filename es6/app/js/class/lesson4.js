@@ -9,7 +9,7 @@
 	console.log(Number.isNaN(NaN))
 }
 {
-console.log(Number.isInteger(25.0)); // 是否是整数 .0也是整数
+	console.log(Number.isInteger(25.0)); // 是否是整数 .0也是整数
 }
 {
 	console.log(Number.MAX_SAFE_INTEGER,Number.MIN_SAFE_INTEGER , Math.PI);

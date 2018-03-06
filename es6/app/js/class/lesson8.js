@@ -51,7 +51,7 @@
 			console.log('tell')
 		}
 	}
-	Parent.tell();// 静态方法用类去掉用，而不是用的实例
+	Parent.tell();// 静态方法用类去调用，而不是用的实例
 }
 {
 	//静态属性
