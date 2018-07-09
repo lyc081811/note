@@ -6,7 +6,7 @@
       <button @click="decrement">-</button>
     </p>
 
-    <a href="/pages/index/main" class="home">去往首页</a>
+    <a href="javascript:void(0)" class="home" @click="gobd">去往百度</a>
   </div>
 </template>
 
@@ -26,6 +26,9 @@ export default {
     },
     decrement () {
       store.commit('decrement')
+    },
+    gobd () {
+      console.log('马上进入百度的首页')
     }
   }
 }
