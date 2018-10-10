@@ -1,9 +1,9 @@
-module.extends = {
+module.exports = {
     mode: 'none',
     entry: './src/index.js',
     output: {
         path: __dirname,
-        filename: './build/bundle.js'
+        filename: 'build/bundle.js'
     },
     module: {
         rules: [{

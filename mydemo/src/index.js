@@ -1,6 +1,21 @@
-import util1 from './util1.js'
-import {fn1, fn2} from './util2.js'
+// function MathHandle(x, y) {
+//     this.x = x;
+//     this.y = y;
+// }
 
-console.log(util1)
-fn1()
-fn2()
+// MathHandle.prototype.add = function () {
+//     return this.x + this.y;
+// }
+
+class MathHandle {
+    constructor(x, y){
+        this.x = x;
+        this.y = y;
+    }
+    add() {
+       return this.x + this.y; 
+    }
+    
+}
+var m = new MathHandle(1, 2);
+console.log(m.add())
