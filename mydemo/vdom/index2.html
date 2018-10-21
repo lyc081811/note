@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <button id="btn">change</button>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.2/snabbdom.min.js"></script>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.2/snabbdom-class.min.js"></script>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.2/snabbdom-props.min.js"></script>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.2/snabbdom-style.min.js"></script>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.2/snabbdom-eventlisteners.min.js"></script>
+    <script src="https://cdn.bootcss.com/snabbdom/0.7.2/h.min.js"></script>
+    <script>
+        var data = [
+            {
+                name: '姓名',
+                age: '年龄',
+                address: '地址'
+            },
+            {
+                name: '张三',
+                age: 20,
+                address: '北京'
+            },
+            {
+                name: '李四',
+                age: 21,
+                address: '南京'
+            },
+            {
+                name: '王五',
+                age: 22,
+                address: '东京'
+            }
+        ]
+        var snabbdom = window.snabbdom;
+        // 定义patch
+        var patch = snabbdom.init([
+            snabbdom_class,
+            snabbdom_props,
+            snabbdom_style,
+            snabbdom_eventlisteners
+        ]);
+
+        // 定义h
+        var h = snabbdom.h;
+        
+        var container = document.getElementById('container');
+        // 生成vnode
+        var vnode;
+
+        function render(data) {
+            var newVnode = h('table', {}, data.map(x => {
+                var tds = [], i;
+                for (i in x) {
+                    if(x.hasOwnProperty(i)) {
+                        tds.push(h('td', {}, x[i] + ''))
+                    }
+                }
+                return h('tr', {}, tds)
+            }));
+            if (vnode) {
+                patch(vnode,newVnode) // 修改后渲染
+            } else {
+                patch(container,newVnode) // 初次渲染
+            }
+            vnode = newVnode;
+        };
+        render(data);
+        document.getElementById('btn').addEventListener('click', function(){
+            ++data[1].age;
+            data[2].address = '济南';
+            render(data)
+        })
+    </script>
+</body>
+</html>
