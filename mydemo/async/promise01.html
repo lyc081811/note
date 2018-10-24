@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <script src="https://cdn.bootcss.com/bluebird/3.5.2/bluebird.min.js"></script> -->
+    <script>
+        function loadImg(url) {
+            var promise = new Promise(function(resolve, reject){
+                var img = document.createElement('img')
+                img.onload = function() {
+                    resolve(img)
+                }
+                img.onerror = function () {
+                    reject()
+                }
+                img.src = url
+            })
+            return promise;
+        }
+        var src = 'https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg';
+        var result = loadImg(src);
+        result.then(x => {
+            console.log(x.width)
+            return x
+        }, function(){
+            console.log('error 1')
+        }).then(x => {
+            console.log(x)
+        })
+    </script>
+</body>
+</html>

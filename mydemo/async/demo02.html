@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=scri, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+     
+    //  function await() {
+    //     var task = function(){
+    //        console.log(' 完成了！')
+    //     }
+    //     setTimeout(task, 2000);
+    // }
+    // await()
+
+
+    function waitHandle() {
+        var dtd = $.Deferred();
+        var wait = function(dtd) {
+            var task = function() {
+                console.log('执行完成！')
+                dtd.resolve();
+                // dtd.reject();
+            }
+            setTimeout(task, 2000)
+            // return dtd;
+            return dtd.promise;//返回值后只可以去接then.done.fail
+        }
+        return wait(dtd);
+    }
+
+    var w = waitHandle()
+    // w.reject()  为了避免这样的做法，可以返回dtd.promise()
+    // $.when(w).then()-----
+    w.then(function(){
+        console.log('resolve!')
+    }, function(){
+        console.log('reject!')
+    })
+    </script>
+</body>
+</html>
