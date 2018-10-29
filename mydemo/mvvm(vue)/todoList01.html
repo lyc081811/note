@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="txt-title">
+        <button id="btn-submit">submit</button>
+    </div>
+    <div>
+        <ul id="ul-list"></ul>
+    </div>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var $txtTile = $('#txt-title');
+        var $ulLIst = $('#ul-list');
+        var $btnSubmit = $('#btn-submit');
+        $btnSubmit.on('click', function(){
+            var title = $txtTile.val();
+            if (!title) {
+                return
+            }
+            var $li = $('<li>' + title + '</li>');
+            $ulLIst.append($li);
+            $txtTile.val('')
+        })
+    </script>
+</body>
+</html>
