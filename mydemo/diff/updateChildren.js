@@ -11,7 +11,3 @@
         }
     });
  }
-
- function replaceNode(vnode, newVnode) {
-     var 
- }

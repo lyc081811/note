@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Comment from './Comment'
-class CommentInput extends Component {
+class CommentList extends Component {
     static defaultProps = {
         comments: []
     }
@@ -12,4 +12,4 @@ class CommentInput extends Component {
         )
     }
 }
-export default CommentInput
+export default CommentList
