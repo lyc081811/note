@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="underscore.js"></script>
+</head>
+<body>
+    <script>
+        // 柯里化 类似于rest参数
+        function fn (args, rest) {
+            console.log(rest)
+        }
+
+        var fnRest = _.restArgs(fn);
+        fnRest('1','2','3')
+    </script>
+</body>
+</html>

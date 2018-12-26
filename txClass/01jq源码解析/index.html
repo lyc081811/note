@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.aaa {
+			color: #e60000;
+		}
+	</style>
+</head>
+<body>
+	<div class="app">12</div>
+	<div class="app">34</div>
+	<button onclick="removeClass()">remove</button>
+	<!-- <script src="./jquery.js"></script> -->
+	<script src="https://cdn.bootcss.com/sizzle/2.3.2/sizzle.js"></script>
+	<script src="djq.js"></script>
+	<script>
+		var ele = $('.app')
+		console.log(ele)
+		ele.addClass('aaa')
+		function removeClass () {
+			ele.removeClass('aaa')
+		}
+	</script>
+</body>
+</html>
